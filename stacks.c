@@ -38,12 +38,7 @@ static	long	ft_atol(char *str)
 	return (nbr * sign);
 }
 
-/* static	int	check_input(char *str)
-{
-	
-} */
-
-void **init_stack(t_node **stack, char **av)
+void **init_stack(t_node **a, char **av)
 {
 	long	nbr;
 	int		i;
@@ -51,14 +46,14 @@ void **init_stack(t_node **stack, char **av)
 	i = 0;
 	while(av[i])
 	{
-		if (check_syn(av[i]))
-			free_errors;
+		if (error_syn(av[i]))
+			free_errors();
 		nbr = ft_atol(av[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
-			free_errors
+			free_errors();
 		if (error_rep(*a, (int)nbr))
-			free_errors
-		append_node
+			free_errors();
+		append_node()
 		i++;
 	}
 	return(stack);
