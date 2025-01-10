@@ -19,13 +19,14 @@
 
 typedef struct s_node
 {
-	int cost;
-	int above_median;
-	int cheapest;
-	int position;
-	int value;
-	struct s_node *previous;
-	struct s_node *next;
+	int				value;
+	int				position;
+	int				push_price;
+	int				above_median;
+	int				cheapest;
+	struct s_node	*target_node;
+	struct s_node	*previous;
+	struct s_node	*next;
 }	t_node;
 
 /* stack utils */
@@ -34,6 +35,14 @@ t_node	*cheapest(t_node *stack);
 t_node	*last_node(t_node *lst);
 void	add_last(t_node **stack, int nbr);
 t_node	*find_smallest(t_node *stack);
+int	stack_sorted(t_node *stack);
+t_node	*find_biggest(t_node *stack);
+void	set_cheapest(t_node *b);
+void	set_current_position(t_node *stack);
+void	init_nodes(t_node *a, t_node *b);
+void	set_target_node(t_node *a, t_node *b);
+
+
 
 void sa(t_node **stack_a);
 void sb(t_node **stack_b);

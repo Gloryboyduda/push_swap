@@ -12,38 +12,7 @@
 
 #include "push_swap.h"
 
-int	stack_sorted(t_node *stack)
-{
-	if (!stack)
-		return (1);
-	while(stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-			stack = stack->next;
-	}
-	return(1);
-}
 
-static t_node	*find_biggest(t_node *stack)
-{
-	int		biggest;
-	t_node	*biggest_node;
-
-	if (!stack)
-		return (NULL);
-	biggest = INT_MIN;
-	while (stack)
-	{
-		if (stack->value > biggest)
-		{
-			biggest = stack->value;
-			biggest_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (biggest_node);
-}
 
 void	lil_sort(t_node **stack_a)
 {
