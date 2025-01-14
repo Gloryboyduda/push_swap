@@ -6,26 +6,11 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:50:21 by duandrad          #+#    #+#             */
-/*   Updated: 2025/01/07 18:50:21 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/01/13 14:33:38 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-int	stack_size(t_node *stack)
-{
-	int	i;
-
-	i = 0;
-	if (!stack)
-		return (0);
-	while (stack)
-	{
-		stack = stack->next;
-		i++;
-	}
-	return (i);
-}
+#include "push_swap.h"
 
 t_node	*cheapest(t_node *stack)
 {
@@ -40,37 +25,24 @@ t_node	*cheapest(t_node *stack)
 	return (NULL);
 }
 
-t_node	*last_node(t_node *lst)
+t_node	*find_biggest(t_node *stack)
 {
-	if (lst == NULL)
-		return (lst);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
-}
-void	add_last(t_node **stack, int nbr)
-{
-	t_node	*node;
-	t_node	*last;
+	int		biggest;
+	t_node	*biggest_node;
 
 	if (!stack)
-		return ;
-	node = malloc(sizeof(t_node));
-	if (!node)
-		return ;
-	node->next = NULL;
-	node->value = nbr;
-	if (!(*stack))
+		return (NULL);
+	biggest = INT_MIN;
+	while (stack)
 	{
-		*stack = node;
-		node->previous = NULL;
+		if (stack->value > biggest)
+		{
+			biggest = stack->value;
+			biggest_node = stack;
+		}
+		stack = stack->next;
 	}
-	else
-	{
-		last = ft_lstlast(*stack);
-		last->next = node;
-		node->previous = last;
-	}
+	return (biggest_node);
 }
 
 t_node	*find_smallest(t_node *stack)

@@ -1,25 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/27 16:02:28 by duandrad          #+#    #+#             */
-/*   Updated: 2025/01/06 15:32:30 by duandrad         ###   ########.fr       */
+/*   Created: 2025/01/13 14:19:38 by duandrad          #+#    #+#             */
+/*   Updated: 2025/01/13 14:28:57 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_a(t_node **stack_a, t_node**stack_b)
+static	rotate(t_node **stack)
 {
-	t_node *a;
-	t_node *b;
-	
-	if (!stack_a || !stack_b || !*stack_a || !*stack_b)
+	t_node	*last;
+
+	if (!*stack || !(*stack)->next)
 		return ;
-	a = *stack_a;
-	b = *stack_b;
-	
+	last = last_node(stack);
+	last->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->previous = NULL;
+	last->next->previous = last;
+	last->next->next = NULL;
+}
+
+void	ra(t_node **a)
+{
+	rotate(a);
+	write(1, "ra\n", 3);
+}
+
+void	rb(t_node **b)
+{
+	rotate(b);
+	write(1, "rb\n", 3);
+}
+
+void	rr(t_node **a, t_node **b)
+{
+	rotate(a);
+	rotate(b);
+	write(1, "rr\n", 3);
 }

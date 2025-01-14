@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacks.c                                           :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:23:07 by duandrad          #+#    #+#             */
-/*   Updated: 2025/01/06 16:42:51 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/01/13 14:37:25 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap.h" 
 
 static	long	ft_atol(char *str)
 {
@@ -38,7 +38,7 @@ static	long	ft_atol(char *str)
 	return (nbr * sign);
 }
 
-void **init_stack(t_node **a, char **av)
+void init_stack(t_node **a, char **av)
 {
 	long	nbr;
 	int		i;
@@ -47,14 +47,15 @@ void **init_stack(t_node **a, char **av)
 	while(av[i])
 	{
 		if (error_syn(av[i]))
-			free_errors();
+			free_error(a);
 		nbr = ft_atol(av[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
-			free_errors();
+			free_error(a);
 		if (error_rep(*a, (int)nbr))
-			free_errors();
-		append_node()
+			free_error(a);
+		add_last(a, (int)nbr);
 		i++;
 	}
-	return(stack);
+	return(a);
 }
+

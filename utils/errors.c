@@ -6,7 +6,7 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:25:58 by duandrad          #+#    #+#             */
-/*   Updated: 2025/01/07 18:25:58 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/01/13 12:05:36 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void	free_stack(t_node **stack)
 void	free_error(t_node **a, char **av)
 {
 	free_stack(a);
-	
+	write(1, "Error\n", 6);
+	exit(1);
 }
