@@ -6,11 +6,11 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:23:07 by duandrad          #+#    #+#             */
-/*   Updated: 2025/01/13 14:37:25 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/18 03:31:57 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
+#include "../push_swap.h" 
 
 static	long	ft_atol(char *str)
 {
@@ -38,13 +38,13 @@ static	long	ft_atol(char *str)
 	return (nbr * sign);
 }
 
-void init_stack(t_node **a, char **av)
+void	init_stack(t_list **a, char **av)
 {
 	long	nbr;
 	int		i;
 
 	i = 0;
-	while(av[i])
+	while (av[i])
 	{
 		if (error_syn(av[i]))
 			free_error(a);
@@ -53,9 +53,8 @@ void init_stack(t_node **a, char **av)
 			free_error(a);
 		if (error_rep(*a, (int)nbr))
 			free_error(a);
-		add_last(a, (int)nbr);
+		ft_lstadd_back(a, (int)nbr);
 		i++;
 	}
-	return(a);
+	return (a);
 }
-

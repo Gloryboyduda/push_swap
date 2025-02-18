@@ -1,16 +1,16 @@
-NAME = push_swap.a
-SRCS = find_biggest.c ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
-ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
+NAME = push_swap
+SRCS = commands/push.c commands/rev_rotate.c commands/rotate.c \
+commands/swap.c utils/errors.c utils/node_utils.c utils/node_utils_2.c \
+utils/split.c utils/stack_init.c utils/stack_utils.c algorithm.c main.c
 OBJS = $(SRCS:.c=.o)
 CC = cc
 CCFLAGS = -Wall -Wextra -Werror -g
-AR = ar rcs $(NAME)
 INCLUDES = push_swap.h 
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(OBJS)
+	$(SRCS) $(OBJS)
 
 %.o: %.c $(INCLUDES)
 	$(CC) $(CCFLAGS) -c $< -o $@

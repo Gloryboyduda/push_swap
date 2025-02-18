@@ -6,28 +6,38 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 14:56:13 by duandrad          #+#    #+#             */
-/*   Updated: 2025/01/06 15:32:30 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/18 03:37:53 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void swap(t_node **stack_a)
+void	swap(t_list **stack_a)
 {
-	t_node *head;
-	t_node *temp;
+	t_list	*head;
+	t_list	*temp;
 
-	temp = ft_lstnew(0);
+	temp = NULL;
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
 	head = *stack_a;
-	temp->value = head->value;
-	head->value = head->next->value;
-	head->next->value = temp->value;
 }
 
-void ss(t_node **stack_a, t_node **stack_b)
+void	sa(t_list **stack_a)
+{
+	swap(stack_a);
+	fputstr("sa\n", 1);
+}
+
+void	sb(t_list **stack_b)
+{
+	swap(stack_b);
+	fputstr("sb\n", 1);
+}
+
+void	ss(t_list **stack_a, t_list **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
+	fputstr("ss\n", 1);
 }

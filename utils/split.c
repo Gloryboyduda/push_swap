@@ -6,11 +6,11 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:54:59 by duandrad          #+#    #+#             */
-/*   Updated: 2025/01/06 15:22:26 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/18 03:31:29 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static char	*ft_substr(char *str, unsigned int start, size_t len)
 {
@@ -68,7 +68,7 @@ static size_t	count_words(char *str, char delm)
 
 static size_t	get_pos(char *str, char delm)
 {
-	size_t pos;
+	size_t	pos;
 
 	pos = 0;
 	while (str[pos] && str[pos] != delm)

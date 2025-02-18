@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 16:21:50 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:27:36 by duandrad         ###   ########.fr       */
+/*   Created: 2025/02/18 03:13:58 by duandrad          #+#    #+#             */
+/*   Updated: 2025/02/18 03:34:34 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
+#include "../push_swap.h"
 
-void	three_sort(t_list **stack_a)
+void	fputstr(char *str, int fd)
 {
-	t_list	*biggest_node;
+	size_t	i;
 
-	biggest_node = find_biggest(stack_a);
-	if (*stack_a == biggest_node)
-		ra(stack_a);
-	else if ((*stack_a)->next == biggest_node)
-		rra(stack_a);
-	if ((*stack_a)->content > (*stack_a)->next->content)
-		sa(stack_a);
+	i = -1;
+	while (++i)
+		write(fd, &str[i], 1);
 }
 
-void	handle_four_five(t_list **stack_a, t_list **stack_b)
-{}
+size_t	ft_strlen(char *str)
+{
+	size_t	i;
 
-void	radix_sort(t_list **stack_a, t_list **stack_b)
-{}
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}

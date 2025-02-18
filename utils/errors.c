@@ -6,11 +6,11 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:25:58 by duandrad          #+#    #+#             */
-/*   Updated: 2025/01/13 12:05:36 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/18 03:37:20 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	error_syn(char *str)
 {
@@ -27,23 +27,23 @@ int	error_syn(char *str)
 	return (0);
 }
 
-int	error_rep(t_node *a, int nbr)
+int	error_rep(t_list *a, int nbr)
 {
 	if (a == NULL)
 		return (0);
 	while (a)
 	{
-		if (a->value == nbr)
+		if (a->content == nbr)
 			return (1);
 		a = a->next;
 	}
 	return (0);
 }
 
-void	free_stack(t_node **stack)
+void	free_stack(t_list **stack)
 {
-	t_node	*tmp;
-	t_node	*current;
+	t_list	*tmp;
+	t_list	*current;
 
 	if (stack == NULL)
 		return ;
@@ -57,9 +57,9 @@ void	free_stack(t_node **stack)
 	*stack = NULL;
 }
 
-void	free_error(t_node **a, char **av)
+void	free_error(t_list **a, char **av)
 {
 	free_stack(a);
-	write(1, "Error\n", 6);
+	fputstr("Error\n", 1);
 	exit(1);
 }

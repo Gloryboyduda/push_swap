@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/18 03:28:01 by duandrad          #+#    #+#             */
+/*   Updated: 2025/02/18 03:28:34 by duandrad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_node *a;
-	t_node *b;
+	t_list	*a;
+	t_list	*b;
 
 	a = NULL;
 	b = NULL;
@@ -14,12 +26,14 @@ int main(int ac, char **av)
 	init_stack(&a, av + 1);
 	if (!stack_sorted(a))
 	{
-		if (stack_len(a) == 2)
+		if (ft_lstsize(a) == 2)
 			sa(&a);
-		else if (stack_len(a) == 3)
-			lil_sort(&a);
+		else if (ft_lstsize(a) == 3)
+			three_sort(&a);
+		else if (ft_lstsize(a) == 4 || ft_lstsize(a) == 5)
+			handle_five(&a, &b);
 		else
-			push_swap(&a, &b);
+			radix_sort(a, b);
 	}
 	free_stack(&a);
 	return (0);

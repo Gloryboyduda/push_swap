@@ -6,61 +6,48 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:50:21 by duandrad          #+#    #+#             */
-/*   Updated: 2025/01/13 14:33:38 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:07:29 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_node	*cheapest(t_node *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack)
-	{
-		if (stack->cheapest)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
-}
-
-t_node	*find_biggest(t_node *stack)
+t_list	*find_biggest(t_list *stack)
 {
 	int		biggest;
-	t_node	*biggest_node;
+	t_list	*biggest_list;
 
 	if (!stack)
 		return (NULL);
 	biggest = INT_MIN;
 	while (stack)
 	{
-		if (stack->value > biggest)
+		if (stack->content > biggest)
 		{
-			biggest = stack->value;
-			biggest_node = stack;
+			biggest = stack->content;
+			biggest_list = stack;
 		}
 		stack = stack->next;
 	}
-	return (biggest_node);
+	return (biggest_list);
 }
 
-t_node	*find_smallest(t_node *stack)
+t_list	*find_smallest(t_list *stack)
 {
 	long	smallest;
-	t_node	*smallest_node;
+	t_list	*smallest_list;
 
 	if (!stack)
 		return (NULL);
 	smallest = LONG_MAX;
 	while (stack)
 	{
-		if (stack->value < smallest)
+		if (stack->content < smallest)
 		{
-			smallest = stack->value;
-			smallest_node = stack;
+			smallest = stack->content;
+			smallest_list = stack;
 		}
 		stack = stack->next;
 	}
-	return (smallest_node);
+	return (smallest_list);
 }

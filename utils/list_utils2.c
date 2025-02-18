@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   list_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 14:13:03 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:39:02 by duandrad         ###   ########.fr       */
+/*   Created: 2025/02/18 03:33:31 by duandrad          #+#    #+#             */
+/*   Updated: 2025/02/18 03:34:40 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static	void	rev_rotate(t_list **stack)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*last;
-
-	if (!*stack || !(*stack)->next)
-		return ;
-	last = last_list(stack);
-	last->next = *stack;
-	*stack = last;
+	if (lst == NULL)
+		return (lst);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
 
-void	rra(t_list **a)
+t_list	*ft_lstnew(void *content)
 {
-	rev_rotate(a);
-	fputstr("rra\n", 1);
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
 
-void	rrb(t_list **b)
+int	ft_lstsize(t_list *lst)
 {
-	rev_rotate(b);
-	fputstr("rrb\n", 1);
-}
+	int	i;
 
-void	rrr(t_list **a, t_list **b)
-{
-	rev_rotate(a);
-	rev_rotate(b);
-	fputstr("rrr\n", 1);
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
