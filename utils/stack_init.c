@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:23:07 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:31:57 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:03:39 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static	long	ft_atol(char *str)
 	nbr = 0;
 	i = 0;
 	sign = 1;
-	while (str[i] == '32' || (str[i] >= 9 && str[i] <= 13))
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+
+	if (str[i] == '+' || str[i] == '-')
 	{
-		sign = -1;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -36,6 +36,33 @@ static	long	ft_atol(char *str)
 		i++;
 	}
 	return (nbr * sign);
+}
+int	get_position(t_list **stack, int number)
+{
+	t_list	*curr;
+	int		i;
+
+	i = 0;
+	curr = *stack;
+	while(curr)
+	{
+		if (curr->content < number)
+			i++;
+		curr = curr->next;
+	}
+	return (i);
+}
+
+void	process_index(t_list **a)
+{
+	t_list *curr;
+
+	curr = *a;
+	while(curr)
+	{
+		curr->index = get_position(a, curr->content);
+		curr = curr->next;
+	}
 }
 
 void	init_stack(t_list **a, char **av)
@@ -51,10 +78,10 @@ void	init_stack(t_list **a, char **av)
 		nbr = ft_atol(av[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
 			free_error(a);
-		if (error_rep(*a, (int)nbr))
+		if (error_rep(*a, nbr))
 			free_error(a);
-		ft_lstadd_back(a, (int)nbr);
+		ft_lstadd_back(a, ft_lstnew(nbr));
 		i++;
 	}
-	return (a);
+	process_index(a);
 }

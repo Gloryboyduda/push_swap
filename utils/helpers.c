@@ -3,22 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 03:13:58 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:34:34 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:59:13 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	fputstr(char *str, int fd)
+void	ft_fputstr(char *str, int fd)
 {
-	size_t	i;
-
-	i = -1;
-	while (++i)
-		write(fd, &str[i], 1);
+	write(fd, str, ft_strlen(str));
 }
 
 size_t	ft_strlen(char *str)

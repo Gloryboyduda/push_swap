@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:25:58 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:37:20 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:02:13 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	error_syn(char *str)
 		return (1);
 	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
 		return (1);
+	str++;
 	while (*str)
 	{
 		if (!(*str >= '0' && *str <= '9'))
@@ -57,9 +58,9 @@ void	free_stack(t_list **stack)
 	*stack = NULL;
 }
 
-void	free_error(t_list **a, char **av)
+void	free_error(t_list **a)
 {
 	free_stack(a);
-	fputstr("Error\n", 1);
+	ft_fputstr("Error\n", 1);
 	exit(1);
 }

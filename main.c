@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 03:28:01 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:28:34 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:07:08 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_list(t_list **a)
+{
+	t_list *currnt;
+
+	currnt = *a;
+	while(currnt)
+	{
+		printf("%d\n", currnt->content);
+		currnt = currnt->next;
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -19,10 +31,8 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	else if (ac == 2)
-		av = ft_split(av[1], ' ');
+	if (ac == 1)
+		return 0;
 	init_stack(&a, av + 1);
 	if (!stack_sorted(a))
 	{
@@ -31,10 +41,11 @@ int	main(int ac, char **av)
 		else if (ft_lstsize(a) == 3)
 			three_sort(&a);
 		else if (ft_lstsize(a) == 4 || ft_lstsize(a) == 5)
-			handle_five(&a, &b);
+			four_five_sort(&a, &b);
 		else
-			radix_sort(a, b);
+			radix_sort(&a, &b);
 	}
 	free_stack(&a);
+	free(b);
 	return (0);
 }

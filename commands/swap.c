@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 14:56:13 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:37:53 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:05:17 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,31 @@
 
 void	swap(t_list **stack_a)
 {
-	t_list	*head;
 	t_list	*temp;
 
-	temp = NULL;
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
-	head = *stack_a;
+	temp = (*stack_a)->next;
+	(*stack_a)->next = temp->next;
+	temp->next = (*stack_a);
+	*stack_a = temp;
 }
 
 void	sa(t_list **stack_a)
 {
 	swap(stack_a);
-	fputstr("sa\n", 1);
+	ft_fputstr("sa\n", 1);
 }
 
 void	sb(t_list **stack_b)
 {
 	swap(stack_b);
-	fputstr("sb\n", 1);
+	ft_fputstr("sb\n", 1);
 }
 
 void	ss(t_list **stack_a, t_list **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	fputstr("ss\n", 1);
+	ft_fputstr("ss\n", 1);
 }

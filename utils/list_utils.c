@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:31:14 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:34:05 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:45:30 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	ptr = ft_lstlast(*lst);
 	ptr->next = new;
+	new->next = NULL;
 }
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
@@ -63,6 +64,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;
-	del(lst->content);
+	del(NULL);
 	free(lst);
 }

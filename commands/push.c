@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 16:02:28 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:38:31 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:19:30 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	push(t_list **dest, t_list**src)
 void	pa(t_list **a, t_list **b)
 {
 	push(a, b);
-	fputstr("pa\n", 1);
+	ft_fputstr("pa\n", 1);
 }
 
 void	pb(t_list **a, t_list **b)
 {
 	push(b, a);
-	fputstr("pb\n", 1);
+	ft_fputstr("pb\n", 1);
 }
