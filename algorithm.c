@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:21:50 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/19 18:47:57 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:00:34 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	real_four_five_sort(t_list **a_stack, t_list **b_stack)
 {
 	if (ft_lstsize(a_stack[0]) == 5)
 		pb(a_stack, b_stack);
-	(pb(a_stack, b_stack), three_sort(a_stack));
+	pb(a_stack, b_stack);
+	three_sort(a_stack);
 	while (b_stack[0])
 	{
 		if (b_stack[0]->content < a_stack[0]->content)

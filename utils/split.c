@@ -6,7 +6,7 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:54:59 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/18 03:31:29 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:03:59 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ static char	*ft_substr(char *str, unsigned int start, size_t len)
 	char	*substr;
 	size_t	i;
 	size_t	j;
-	size_t	s_len;
 
 	if (!str)
 		return (NULL);
-	s_len = ft_strlen(str);
 	substr = (char *)malloc(sizeof(*str) * (len + 1));
 	if (!substr)
 		return (NULL);

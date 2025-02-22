@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:23:07 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/19 19:03:39 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:02:23 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static	long	ft_atol(char *str)
 	sign = 1;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
-
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -37,6 +36,7 @@ static	long	ft_atol(char *str)
 	}
 	return (nbr * sign);
 }
+
 int	get_position(t_list **stack, int number)
 {
 	t_list	*curr;
@@ -44,7 +44,7 @@ int	get_position(t_list **stack, int number)
 
 	i = 0;
 	curr = *stack;
-	while(curr)
+	while (curr)
 	{
 		if (curr->content < number)
 			i++;
@@ -55,10 +55,10 @@ int	get_position(t_list **stack, int number)
 
 void	process_index(t_list **a)
 {
-	t_list *curr;
+	t_list	*curr;
 
 	curr = *a;
-	while(curr)
+	while (curr)
 	{
 		curr->index = get_position(a, curr->content);
 		curr = curr->next;
