@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 13:51:41 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/19 17:56:03 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:23:25 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 
 /* algorithm */
 void	three_sort(t_list **stack_a);
-void	four_five_sort(t_list **a_stack, t_list **b_stack);
+/* void	four_five_sort(t_list **a_stack, t_list **b_stack); */
+void	four_or_five(t_list **a_stack, t_list **b_stack);
 void	radix_sort(t_list **a_stack, t_list **b_stack);
 
 #endif
