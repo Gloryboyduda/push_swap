@@ -99,6 +99,8 @@ char	**ft_split(char *str, char delm)
 		str += final;
 		counter++;
 	}
+	ft_fputstr("ola", 1);
+	printf("%s\n", split[words]);
 	split[words] = NULL;
 	return (split);
 }

@@ -28,11 +28,14 @@ int	main(int ac, char **av)
 {
 	t_list	*a;
 	t_list	*b;
-
+	char	**checked_args;
+	
+	checked_args = NULL;
 	a = NULL;
 	b = NULL;
 	if (ac == 1)
 		return (0);
+	checked_args = check_args(ac, av);
 	init_stack(&a, av + 1);
 	if (!stack_sorted(a))
 	{
@@ -41,7 +44,7 @@ int	main(int ac, char **av)
 		else if (ft_lstsize(a) == 3)
 			three_sort(&a);
 		else if (ft_lstsize(a) == 4 || ft_lstsize(a) == 5)
-			four_or_five(&a, &b);
+			check_algorithm(&a, &b);
 		else
 			radix_sort(&a, &b);
 	}

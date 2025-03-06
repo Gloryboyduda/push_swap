@@ -31,6 +31,7 @@ int		error_syn(char *str_n);
 int		error_rep(t_list *a, int n);
 void	free_stack(t_list **stack);
 void	free_error(t_list **a);
+char	**check_args(int ac, char **av);
 
 /* initialization */
 void	init_stack(t_list **stack, char **av);
@@ -38,8 +39,8 @@ char	**ft_split(char *str, char delm);
 
 /* stack_utils */
 bool	stack_sorted(t_list *stack);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new_);
+void	ft_lstadd_front(t_list **lst, t_list *new_);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 t_list	*ft_lstlast(t_list *lst);
@@ -48,6 +49,7 @@ int		ft_lstsize(t_list *lst);
 t_list	*find_smallest(t_list *stack);
 t_list	*find_biggest(t_list *stack);
 t_list	*ft_lstpenultimate(t_list *lst);
+
 /* helpers */
 void	ft_fputstr(char *str, int fd);
 size_t	ft_strlen(char *str);
@@ -67,7 +69,8 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 
 /* algorithm */
 void	three_sort(t_list **stack_a);
-/* void	four_five_sort(t_list **a_stack, t_list **b_stack); */
+void	check_algorithm(t_list **a, t_list **b);
+void	odd_cases(t_list **a, t_list **b);
 void	four_or_five(t_list **a_stack, t_list **b_stack);
 void	radix_sort(t_list **a_stack, t_list **b_stack);
 

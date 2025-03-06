@@ -24,8 +24,7 @@ int	error_syn(char *str)
 		if (!(*str >= '0' && *str <= '9'))
 			return (1);
 		str++;
-	}
-	return (0);
+	}	return (0);
 }
 
 int	error_rep(t_list *a, int nbr)
@@ -63,4 +62,24 @@ void	free_error(t_list **a)
 	free_stack(a);
 	ft_fputstr("Error\n", 1);
 	exit(1);
+}
+
+char	**check_args(int ac, char **av)
+{
+	char	**args;
+	
+	args = NULL;
+	if (ac < 2)
+		ft_fputstr("Invalid Number of Arguments\n", 1);
+	if (ac == 2)
+	{
+		args = ft_split(*av + 1, ' ');
+		if (!args || *args)
+		{
+			ft_fputstr("Split Error\n", 1);
+			free(args);
+		}
+		av = args;
+	}
+	return (av);
 }

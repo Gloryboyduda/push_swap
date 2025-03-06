@@ -25,24 +25,24 @@ bool	stack_sorted(t_list *stack)
 	return (true);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new_)
 {
 	t_list	*ptr;
 
 	if (!*lst)
 	{
-		*lst = new;
+		*lst = new_;
 		return ;
 	}
 	ptr = ft_lstlast(*lst);
-	ptr->next = new;
-	new->next = NULL;
+	ptr->next = new_;
+	new_->next = NULL;
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new_)
 {
-	new->next = *lst;
-	*lst = new;
+	new_->next = *lst;
+	*lst = new_;
 }
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))

@@ -69,17 +69,24 @@ void	init_stack(t_list **a, char **av)
 {
 	long	nbr;
 	int		i;
+	int		k;
 
 	i = 0;
+	k = 0;
+	
 	while (av[i])
 	{
-		if (error_syn(av[i]))
-			free_error(a);
 		nbr = ft_atol(av[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
+		{
+			ft_fputstr("Invalid Number Error\n", 1);
 			free_error(a);
+		}
 		if (error_rep(*a, nbr))
+		{
+			ft_fputstr("Repeated Number Error\n", 1);
 			free_error(a);
+		}
 		ft_lstadd_back(a, ft_lstnew(nbr));
 		i++;
 	}
