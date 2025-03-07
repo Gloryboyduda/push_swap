@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duandrad <duandrad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:25:58 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/19 19:02:13 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/03/06 19:46:30 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	free_error(t_list **a)
 	exit(1);
 }
 
-char	**check_args(int ac, char **av)
+/* char	**check_args(int ac, char **av)
 {
 	char	**args;
 	
@@ -82,4 +82,4 @@ char	**check_args(int ac, char **av)
 		av = args;
 	}
 	return (av);
-}
+} */
