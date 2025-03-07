@@ -6,7 +6,7 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:25:58 by duandrad          #+#    #+#             */
-/*   Updated: 2025/03/07 01:09:00 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/03/07 11:33:35 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,26 +61,6 @@ void	free_stack(t_list **stack)
 void	free_error(t_list **a)
 {
 	free_stack(a);
-	ft_fputstr("Error\n", 1);
+	ft_fputstr("Error\n", 2);
 	exit(1);
 }
-
-/* char	**check_args(int ac, char **av)
-{
-	char	**args;
-	
-	args = NULL;
-	if (ac < 2)
-		ft_fputstr("Invalid Number of Arguments\n", 1);
-	if (ac == 2)
-	{
-		args = ft_split(*av + 1, ' ');
-		if (!args || *args)
-		{
-			ft_fputstr("Split Error\n", 1);
-			free(args);
-		}
-		av = args;
-	}
-	return (av);
-} */

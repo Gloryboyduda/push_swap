@@ -6,7 +6,7 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:23:07 by duandrad          #+#    #+#             */
-/*   Updated: 2025/03/07 01:35:43 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/03/07 12:47:40 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,21 +74,12 @@ void	init_stack(t_list **a, char **av)
 	while (av[++i])
 	{
 		if (error_syn(av[i]))
-		{
-			ft_fputstr("Syntax Error\n", 1);
 			free_error(a);
-		}
 		nbr = ft_atol(av[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
-		{
-			ft_fputstr("Invalid Number Error\n", 1);
 			free_error(a);
-		}
 		if (error_rep(*a, nbr))
-		{
-			ft_fputstr("Repeated Number Error\n", 1);
 			free_error(a);
-		}
 		ft_lstadd_back(a, ft_lstnew(nbr));
 	}
 	process_index(a);
