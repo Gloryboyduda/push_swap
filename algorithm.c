@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:06:07 by duandrad          #+#    #+#             */
-/*   Updated: 2025/03/04 19:39:28 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/03/07 01:07:50 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int	min(t_list **stack, int number)
-{
-	t_list	*tmp;
-	int		min_index;
-
-	tmp = *stack;
-	min_index = tmp->index;
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-		if ((tmp->index < min_index) && tmp->index != number)
-			min_index = tmp->index;
-	}
-	return (min_index);
-}
-
 void	three_sort(t_list **a_stack)
 {
-	t_list *biggest_node;
+	t_list	*biggest_node;
 
 	biggest_node = find_biggest(*a_stack);
 	if (*a_stack == biggest_node)
@@ -48,7 +31,7 @@ void	four_or_five(t_list **a_stack, t_list **b_stack)
 		pb(a_stack, b_stack);
 	pb(a_stack, b_stack);
 	three_sort(a_stack);
-	while(*b_stack)
+	while (*b_stack)
 	{
 		if ((*b_stack)->content < (*a_stack)->content)
 			pa(a_stack, b_stack);
@@ -70,7 +53,7 @@ void	four_or_five(t_list **a_stack, t_list **b_stack)
 	}
 }
 
-void    odd_cases(t_list **a, t_list **b)
+void	odd_cases(t_list **a, t_list **b)
 {
 	int	fourth;
 	int	fifth;
@@ -104,7 +87,7 @@ void	radix_sort(t_list **a_stack, t_list **b_stack)
 	size_t	size;
 	int		bit_len;
 	int		i;
-	
+
 	size = find_biggest((*a_stack))->index;
 	bit_len = 0;
 	while (size >> bit_len)
@@ -130,5 +113,5 @@ void	check_algorithm(t_list **a, t_list **b)
 	if (ft_lstsize(*a) == 5)
 		odd_cases(a, b);
 	if (!stack_sorted(*a))
-		four_or_five(a,b);
+		four_or_five(a, b);
 }

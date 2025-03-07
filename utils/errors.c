@@ -6,7 +6,7 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:25:58 by duandrad          #+#    #+#             */
-/*   Updated: 2025/03/06 19:46:30 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/03/07 01:09:00 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	error_syn(char *str)
 		if (!(*str >= '0' && *str <= '9'))
 			return (1);
 		str++;
-	}	return (0);
+	}
+	return (0);
 }
 
 int	error_rep(t_list *a, int nbr)

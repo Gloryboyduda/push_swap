@@ -6,7 +6,7 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:13:03 by duandrad          #+#    #+#             */
-/*   Updated: 2025/02/19 20:03:06 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/03/07 01:16:34 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	void	rev_rotate(t_list **stack)
 	if (!*stack || !(*stack)->next)
 		return ;
 	last = ft_lstlast(*stack);
-	ft_lstpenultimate(*stack)->next = NULL;
+	second_to_last(*stack)->next = NULL;
 	last->next = *stack;
 	*stack = last;
 }

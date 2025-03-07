@@ -6,7 +6,7 @@
 /*   By: duandrad <duandrad@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 13:51:41 by duandrad          #+#    #+#             */
-/*   Updated: 2025/03/04 19:23:25 by duandrad         ###   ########.fr       */
+/*   Updated: 2025/03/07 01:33:50 by duandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,9 @@ int		error_syn(char *str_n);
 int		error_rep(t_list *a, int n);
 void	free_stack(t_list **stack);
 void	free_error(t_list **a);
-char	**check_args(int ac, char **av);
-
-/* initialization */
-void	init_stack(t_list **stack, char **av);
-char	**ft_split(char *str, char delm);
 
 /* stack_utils */
+void	init_stack(t_list **stack, char **av);
 bool	stack_sorted(t_list *stack);
 void	ft_lstadd_back(t_list **lst, t_list *new_);
 void	ft_lstadd_front(t_list **lst, t_list *new_);
@@ -48,7 +44,7 @@ t_list	*ft_lstnew(int content);
 int		ft_lstsize(t_list *lst);
 t_list	*find_smallest(t_list *stack);
 t_list	*find_biggest(t_list *stack);
-t_list	*ft_lstpenultimate(t_list *lst);
+t_list	*second_to_last(t_list *lst);
 
 /* helpers */
 void	ft_fputstr(char *str, int fd);
